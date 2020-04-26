@@ -1,2 +1,2 @@
 # NewSneaker
-A web application to display newly released shoes from various websites.
+A React web application to display newly released shoes from various websites.
