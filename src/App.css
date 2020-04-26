@@ -1,0 +1,37 @@
+.App{
+  min-height: 100vh;
+  background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+  text-align: center;
+}
+
+.nikes{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.adidas{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.h1{
+  font-size: 48px;
+  text-shadow: -1px -1px #f00, 1px 1px #a00, -3px 0 4px #000;
+  font-family:"Segoe print", Arial, Helvetica, sans-serif;
+  color: #dd0f00;
+  padding:64px 0 0 0;
+  margin:16px auto;
+  font-weight:lighter;
+  -moz-box-shadow:none;  
+  -webkit-box-shadow: none;  
+  box-shadow:none;  
+  text-align:center;
+  display:block;
+  min-height:172px;
+  min-width:800;
+  max-height:172px;
+  max-width:800px;
+}
+
