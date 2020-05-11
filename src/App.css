@@ -4,6 +4,12 @@
   text-align: center;
 }
 
+.shoes{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 .nikes{
   display: flex;
   justify-content: space-around;
@@ -11,6 +17,12 @@
 }
 
 .adidas{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.underarmours{
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
