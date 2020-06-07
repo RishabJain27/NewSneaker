@@ -21,7 +21,7 @@ const App = () => {
   },[]);
 
   const shoesDB = async () => {
-    const response = await fetch(`http://localhost:3001/shoes`);
+    const response = await fetch(`https://sneakers-api.herokuapp.com/shoes`);
     const data = await response.json();
     setShoes(data);
   }
