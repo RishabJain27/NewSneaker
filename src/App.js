@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Shoe from "./Shoe"
 
@@ -8,10 +12,31 @@ const App = () => {
   
   const [shoes, setShoes] = useState([]);
 
-
   useEffect( () => {
     shoesDB();
   },[]);
+
+  const handleSelectBrand=(e)=>{
+    if(e === "Adidas"){
+      adidasShoes();
+    }
+    if(e === "Nike"){
+      nikeShoes();
+    }
+    if(e === "UnderArmour"){
+      underarmourShoes();
+    }
+
+  }
+
+  const handleSelectGender=(e)=>{
+    var newShoe = [];   
+    shoes.filter(shoes => shoes.gender === e || shoes.gender === "Unisex").map(shoe => (
+      newShoe.push(shoe) 
+    ));
+
+    setShoes(newShoe);
+  }
 
   const shoesDB = async () => {
     const response = await fetch(`https://sneakers-api.herokuapp.com/shoes`);
@@ -19,32 +44,57 @@ const App = () => {
     setShoes(data);
   }
 
-  /* IGNORE
   const nikeShoes = async () => {
-    const response = await fetch(`http://localhost:3001/nikeShoes`);
+    const response = await fetch(`https://sneakers-api.herokuapp.com/nikeShoes`);
     const data = await response.json();
-    setNike(data);
+    setShoes(data);
     //console.log(data);
   }
 
   const adidasShoes = async () => {
-    const response = await fetch(`http://localhost:3001/adidasShoes`);
+    const response = await fetch(`https://sneakers-api.herokuapp.com/adidasShoes`);
     const data = await response.json();
-    setAdidas(data);
+    setShoes(data);
     //console.log(data);
   }
 
   const underarmourShoes = async () => {
-    const response = await fetch(`http://localhost:3001/underarmourShoes`);
+    const response = await fetch(`https://sneakers-api.herokuapp.com/underarmourShoes`);
     const data = await response.json();
-    setUnderarmour(data);
+    setShoes(data);
     //console.log(data);
   } 
-  */
+
 
   return (
     <div className="App">
-      <h1 className="h1">Newly Released Shoes</h1>
+      <h1 className="h1">Newly Released Sneakers</h1>
+      <Navbar className="navbar" collapseOnSelect expand="lg" variant="light">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto">
+            <NavDropdown 
+              title="Brand" 
+              id="collasible-nav-dropdown"
+              onSelect={handleSelectBrand}>
+              <NavDropdown.Item eventKey="Nike">Nike</NavDropdown.Item>
+              <NavDropdown.Item eventKey="Adidas">Adidas</NavDropdown.Item>
+              <NavDropdown.Item eventKey="UnderArmour">Under Armour</NavDropdown.Item>
+            </NavDropdown>
+
+            <NavDropdown 
+              title="Gender" 
+              id="collasible-nav-dropdown"
+              onSelect={handleSelectGender}>
+              <NavDropdown.Item eventKey="Male">Male</NavDropdown.Item>
+              <NavDropdown.Item eventKey="Female">Female</NavDropdown.Item>
+              <NavDropdown.Item eventKey="Unisex">Unisex</NavDropdown.Item>
+              <NavDropdown.Item eventKey="Kid">Kids</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+      <br></br>
       <div className="shoes">             
         {shoes.map(shoe => (
           <Shoe
