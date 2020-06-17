@@ -11,6 +11,7 @@ import Shoe from "./Shoe"
 const App = () => {
   
   const [shoes, setShoes] = useState([]);
+  const [allValues, setValues] = useState([]);
 
   useEffect( () => {
     shoesDB();
@@ -30,11 +31,18 @@ const App = () => {
   }
 
   const handleSelectGender=(e)=>{
-    var newShoe = [];   
-    shoes.filter(shoes => shoes.gender === e || shoes.gender === "Unisex").map(shoe => (
-      newShoe.push(shoe) 
-    ));
-
+    var newShoe = [];
+   
+    if(e === "Kid"){
+      allValues.filter(allValues => allValues.gender === e ).map(allValue => (
+        newShoe.push(allValue) 
+      ));
+    }
+    else{
+      allValues.filter(allValues => allValues.gender === e || allValues.gender === "Unisex").map(allValue => (
+        newShoe.push(allValue) 
+      ));
+    }
     setShoes(newShoe);
   }
 
@@ -42,12 +50,14 @@ const App = () => {
     const response = await fetch(`https://sneakers-api.herokuapp.com/shoes`);
     const data = await response.json();
     setShoes(data);
+    setValues(data);
   }
 
   const nikeShoes = async () => {
     const response = await fetch(`https://sneakers-api.herokuapp.com/nikeShoes`);
     const data = await response.json();
     setShoes(data);
+    setValues(data);
     //console.log(data);
   }
 
@@ -55,6 +65,7 @@ const App = () => {
     const response = await fetch(`https://sneakers-api.herokuapp.com/adidasShoes`);
     const data = await response.json();
     setShoes(data);
+    setValues(data);
     //console.log(data);
   }
 
@@ -62,6 +73,7 @@ const App = () => {
     const response = await fetch(`https://sneakers-api.herokuapp.com/underarmourShoes`);
     const data = await response.json();
     setShoes(data);
+    setValues(data);
     //console.log(data);
   } 
 
