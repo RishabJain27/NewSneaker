@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Button} from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Home.css';
 import Shoe from "./Shoe"
@@ -12,6 +13,7 @@ const Home = () => {
 
   const [shoes, setShoes] = useState([]);
   const [allValues, setValues] = useState([]);
+  const history = useHistory();
   
 
   useEffect( () => {
@@ -28,6 +30,11 @@ const Home = () => {
     if(e === "UnderArmour"){
       underarmourShoes();
     }
+
+  }
+
+  const handleLoginRedirect = () =>{
+    history.push("/Login");
 
   }
 
@@ -105,7 +112,7 @@ const Home = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Button variant="outline-primary" href="/Login">Login</Button>
+            <Button variant="outline-primary" onClick={handleLoginRedirect}>Login</Button>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
