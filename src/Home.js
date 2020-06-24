@@ -105,7 +105,7 @@ const Home = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Button variant="outline-primary" href="Login">Login</Button>
+            <Button variant="outline-primary" href="/Login">Login</Button>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
