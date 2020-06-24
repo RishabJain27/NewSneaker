@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import './Login.css';
 
 const Register = () => {
@@ -48,6 +48,8 @@ const Register = () => {
     }
 
 
+
+
     return (
         <div className="Login">
             <div className="Login-small">
@@ -76,7 +78,7 @@ const Register = () => {
 
                     <button type="submit" className="btn btn-primary btn-block" onClick={submitButton}>Sign Up</button>
                     <p className="forgot-password text-right">
-                        Already registered <a href="Login">sign in?</a>
+                        Already registered <Link to="/Login">Sign In?</Link>
                     </p>
                 </form>
             </div>

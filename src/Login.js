@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './Login.css';
 
@@ -32,18 +32,13 @@ const Login = () => {
         console.log(data);
         
         if(response.ok){
-            //history.push("/");
-            history.push({
-                pathname: '/',
-                user: true,
-              });
+            history.push("/");   
         }
         else{
             alert(data.message);
         }
         
     }
-
 
     return (
         <div className="Login">
@@ -63,7 +58,8 @@ const Login = () => {
 
                     <button type="submit" className="btn btn-primary btn-block" onClick={submitButton}>Submit</button>
                     <p className="forgot-password text-right">
-                        Don't have an account <a href="Register">Sign Up?</a>
+                        Don't have an account <Link to="/Register">Sign Up?</Link>
+                        
                     </p>
                 </form>
             </div>
