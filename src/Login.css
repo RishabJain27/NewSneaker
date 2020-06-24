@@ -1,0 +1,30 @@
+.Login-small{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow:  0px 5px 20px rgb(71,71,71);
+    border-radius: 10px;
+    margin: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;	
+    min-height: 30vh;
+    width: 20%;
+}
+
+.Login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    min-height: 50vh;
+}
+
+h3{  
+    text-align: center; 
+    font-weight: 500;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+

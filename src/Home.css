@@ -1,0 +1,42 @@
+.Home{
+    min-height: 100vh;
+    background: linear-gradient(-180deg, #BCC5CE 0%, #929EAD 98%), radial-gradient(at top left, rgba(255,255,255,0.30) 0%, rgba(0,0,0,0.30) 100%);
+   background-blend-mode: screen;
+    text-align: center;
+  }
+  
+  .shoes{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  
+  .h1{
+    font-size: 48px;
+    font-family:"Segoe print", Arial, Helvetica, sans-serif;
+    color: black;
+    padding:64px 0 0 0;
+    margin:16px auto;
+    font-weight:lighter;
+    -moz-box-shadow:none;  
+    -webkit-box-shadow: none;  
+    box-shadow:none;  
+    text-align:center;
+    display:block;
+    min-height:172px;
+    min-width:800;
+    max-height:172px;
+    max-width:800px;
+  }
+  
+  .navbar {
+    background-color:#bcc5ce52;
+  }
+  
+  .navbar-light .navbar-nav .nav-link{
+    color: black;
+    font-weight: bolder;
+  }
+  
+  
