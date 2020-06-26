@@ -16,8 +16,6 @@ const Cart = () => {
     cartDB();
   });
 
-
-
   const cartDB = async () => {
     var url = "https://sneakers-api.herokuapp.com/cart/" + email;
     const response = await fetch(url);
