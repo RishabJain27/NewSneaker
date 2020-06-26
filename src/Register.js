@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import { useHistory, Link } from 'react-router-dom';
+import {login, first} from './actions';
+import {useDispatch} from 'react-redux';
 import './Login.css';
 
 const Register = () => {
@@ -9,6 +11,7 @@ const Register = () => {
     const [emailAddress, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const handleSelectFirst=(e)=>{
         setFirst(e.target.value);
@@ -42,9 +45,14 @@ const Register = () => {
         const response = await fetch(`https://sneakers-api.herokuapp.com/user`, requestOptions);
         const data = await response.json();
         if(response.ok){
+            dispatch(login());
+            dispatch(first(firstName));
             history.push("/");
         }
-        alert(data.message);
+        else{
+            alert(data.message);
+        }
+        
     }
 
 

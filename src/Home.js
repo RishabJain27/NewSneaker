@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Button} from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import {useSelector} from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Home.css';
 import Shoe from "./Shoe"
@@ -14,6 +15,8 @@ const Home = () => {
   const [shoes, setShoes] = useState([]);
   const [allValues, setValues] = useState([]);
   const history = useHistory();
+  const isLogged = useSelector(state => state.isLogged);
+  const firstName = useSelector(state => state.FirstName);
   
 
   useEffect( () => {
@@ -111,9 +114,7 @@ const Home = () => {
               <NavDropdown.Item eventKey="Kid">Kids</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Nav>
-            <Button variant="outline-primary" onClick={handleLoginRedirect}>Login</Button>
-          </Nav>
+          {isLogged ? <Nav><h3>Hi {firstName}!</h3></Nav> : <Nav><Button variant="outline-primary" onClick={handleLoginRedirect}>Login</Button></Nav> }
         </Navbar.Collapse>
       </Navbar>
       <br></br>

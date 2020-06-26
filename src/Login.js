@@ -2,12 +2,15 @@ import React, {useState} from "react";
 import { useHistory, Link } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './Login.css';
+import {login, first} from './actions';
+import {useDispatch} from 'react-redux';
 
 const Login = () => {
 
     const [emailAddress, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const handleSelectEmail=(e)=>{
         //console.log(e.target.value);
@@ -29,9 +32,12 @@ const Login = () => {
 
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data);
+        //console.log(data);
         
         if(response.ok){
+            dispatch(login());
+            console.log(data.first);
+            dispatch(first(data.first));
             history.push("/");   
         }
         else{
