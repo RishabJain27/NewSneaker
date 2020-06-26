@@ -32,11 +32,10 @@ const Login = () => {
 
         const response = await fetch(url);
         const data = await response.json();
-        //console.log(data);
+        console.log(data);
         
         if(response.ok){
             dispatch(login());
-            console.log(data.first);
             dispatch(first(data.first));
             history.push("/");   
         }
