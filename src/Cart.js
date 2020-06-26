@@ -25,6 +25,7 @@ const Cart = () => {
 
   return (
     <div className="Cart">
+      <h1 className="h1">Saved Shoes</h1>
       <div className="shoes">             
         {shoes.map(shoe => (
           <Shoe
