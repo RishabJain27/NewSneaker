@@ -16,27 +16,28 @@ const Cart = () => {
     cartDB();
   });
 
-  const cartDB = async () => {
+  const cartDB = async (arr) => {
     var url = "https://sneakers-api.herokuapp.com/cart/" + email;
     const response = await fetch(url);
     const data = await response.json();
     setShoes(data);
+    console.log(shoes.length);
   } 
 
   return (
     <div className="Cart">
       <h1 className="h1">Saved Shoes</h1>
-      <div className="shoes">             
-        {shoes.map(shoe => (
+      <div className="shoes">   
+      {shoes.length > 0 ? shoes.map(shoe => (
           <Shoe
             key = {shoe.image_url}
             names={shoe.name}
             image_url = {shoe.image_url} 
             site = {shoe.site}
             category = {shoe.category}
-            gender = {shoe.gender}
+            email = {email}
           />
-        ))}
+        )) : null}         
       </div>
     </div>
   );

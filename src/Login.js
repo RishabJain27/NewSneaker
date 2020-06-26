@@ -13,12 +13,10 @@ const Login = () => {
     const dispatch = useDispatch();
 
     const handleSelectEmail=(e)=>{
-        //console.log(e.target.value);
         setEmail(e.target.value);
     }
 
     const handleSelectPass=(e)=>{
-        //console.log(e.target.value);
         setPass(e.target.value);
     }
 
@@ -28,11 +26,9 @@ const Login = () => {
         var passUrl = "/pass/";
         url = url.concat(emailAddress,passUrl);
         url = url.concat(pass);
-        console.log(url);
 
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data);
         
         if(response.ok){
             dispatch(login());
