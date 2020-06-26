@@ -7,7 +7,9 @@ import { useHistory } from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Home.css';
-import Shoe from "./Shoe"
+import Shoe from "./Shoe";
+import shoppingCart from './images/shopping-cart.png';
+
 
 
 const Home = () => {
@@ -38,6 +40,11 @@ const Home = () => {
 
   const handleLoginRedirect = () =>{
     history.push("/Login");
+
+  }
+
+  const handleCartRedirect = () =>{
+    history.push("/Cart");
 
   }
 
@@ -90,6 +97,7 @@ const Home = () => {
 
   return (
     <div className="Home">
+      {isLogged ? <img className= "shopping-Logo" src={shoppingCart} alt="Logo" onClick={handleCartRedirect}/> : null}
       <h1 className="h1">Newly Released Sneakers</h1>
       <Navbar className="navbar" collapseOnSelect expand="lg" variant="light">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -126,6 +134,7 @@ const Home = () => {
             image_url = {shoe.image_url} 
             site = {shoe.site}
             category = {shoe.category}
+            gender = {shoe.gender}
           />
         ))}
       </div>

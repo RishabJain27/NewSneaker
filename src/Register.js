@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useHistory, Link } from 'react-router-dom';
-import {login, first} from './actions';
+import {login, first, email} from './actions';
 import {useDispatch} from 'react-redux';
 import './Login.css';
 
@@ -47,6 +47,7 @@ const Register = () => {
         if(response.ok){
             dispatch(login());
             dispatch(first(firstName));
+            dispatch(email(emailAddress));
             history.push("/");
         }
         else{

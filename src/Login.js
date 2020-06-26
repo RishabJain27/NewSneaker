@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { useHistory, Link } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './Login.css';
-import {login, first} from './actions';
+import {login, first, email} from './actions';
 import {useDispatch} from 'react-redux';
 
 const Login = () => {
@@ -37,6 +37,7 @@ const Login = () => {
         if(response.ok){
             dispatch(login());
             dispatch(first(data.first));
+            dispatch(email(data.email));
             history.push("/");   
         }
         else{

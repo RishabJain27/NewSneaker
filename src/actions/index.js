@@ -10,3 +10,11 @@ export const first = (nm) => {
         payload: nm
     };
 };
+
+
+export const email = (em) => {
+    return{
+        type: 'EMAIL',
+        payload: em
+    };
+};
