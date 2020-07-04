@@ -15,6 +15,7 @@ import shoppingCart from './images/shopping-cart.png';
 const Home = () => {
 
   const [shoes, setShoes] = useState([]);
+  const [filterValues, setFilter] = useState([]);
   const [allValues, setValues] = useState([]);
   const history = useHistory();
   const isLogged = useSelector(state => state.isLogged);
@@ -52,12 +53,12 @@ const Home = () => {
     var newShoe = [];
    
     if(e === "Kid"){
-      allValues.filter(allValues => allValues.gender === e ).map(allValue => (
+      filterValues.filter(allValues => allValues.gender === e ).map(allValue => (
         newShoe.push(allValue) 
       ));
     }
     else{
-      allValues.filter(allValues => allValues.gender === e || allValues.gender === "Unisex").map(allValue => (
+      filterValues.filter(allValues => allValues.gender === e || allValues.gender === "Unisex").map(allValue => (
         newShoe.push(allValue) 
       ));
     }
@@ -69,30 +70,35 @@ const Home = () => {
     const data = await response.json();
     setShoes(data);
     setValues(data);
+    setFilter(data);
   }
 
-  const nikeShoes = async () => {
-    const response = await fetch(`https://sneakers-api.herokuapp.com/nikeShoes`);
-    const data = await response.json();
-    setShoes(data);
-    setValues(data);
+  const nikeShoes = () => {
+    var newShoe = [];
+    allValues.filter(allValues => allValues.brand === 'Nike' ).map(allValue => (
+      newShoe.push(allValue) 
+    ));
+    setShoes(newShoe);
+    setFilter(newShoe);
+  }
+
+  const adidasShoes = () => {
+    var newShoe = [];
+    allValues.filter(allValues => allValues.brand === 'Adidas' ).map(allValue => (
+      newShoe.push(allValue) 
+    ));
+    setShoes(newShoe);
+    setFilter(newShoe);
     //console.log(data);
   }
 
-  const adidasShoes = async () => {
-    const response = await fetch(`https://sneakers-api.herokuapp.com/adidasShoes`);
-    const data = await response.json();
-    setShoes(data);
-    setValues(data);
-    //console.log(data);
-  }
-
-  const underarmourShoes = async () => {
-    const response = await fetch(`https://sneakers-api.herokuapp.com/underarmourShoes`);
-    const data = await response.json();
-    setShoes(data);
-    setValues(data);
-    //console.log(data);
+  const underarmourShoes = () => {
+    var newShoe = [];
+    allValues.filter(allValues => allValues.brand === 'Under-Armour' ).map(allValue => (
+      newShoe.push(allValue) 
+    ));
+    setShoes(newShoe);
+    setFilter(newShoe);
   } 
 
   return (
