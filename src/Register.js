@@ -42,7 +42,7 @@ const Register = () => {
                 password: pass
             })
         };
-        const response = await fetch(`https://sneakers-api.herokuapp.com/user`, requestOptions);
+        const response = await fetch(`https://sneakersupdated-bd053f013fa7.herokuapp.com/user`, requestOptions);
         const data = await response.json();
         if(response.ok){
             dispatch(login());

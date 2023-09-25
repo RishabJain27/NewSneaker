@@ -27,7 +27,7 @@ const Shoe = ({names, image_url, site, category, gender}) => {
                     gender: gender
             })
         };
-        const response = await fetch(`https://sneakers-api.herokuapp.com/cart`, requestOptions);
+        const response = await fetch(`https://sneakersupdated-bd053f013fa7.herokuapp.com/cart`, requestOptions);
         const data = await response.json();
         if(response.ok){
             alert("Added Item to Cart");

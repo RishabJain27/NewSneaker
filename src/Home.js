@@ -66,7 +66,7 @@ const Home = () => {
   }
 
   const shoesDB = async () => {
-    const response = await fetch(`https://sneakers-api.herokuapp.com/shoes`);
+    const response = await fetch(`https://sneakersupdated-bd053f013fa7.herokuapp.com/shoes`);
     const data = await response.json();
     setShoes(data);
     setValues(data);

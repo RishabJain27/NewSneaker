@@ -22,7 +22,7 @@ const Login = () => {
 
     const  submitButton=async(e)=>{
         e.preventDefault();
-        var url = "https://sneakers-api.herokuapp.com/user/";
+        var url = "https://sneakersupdated-bd053f013fa7.herokuapp.com/user/";
         var passUrl = "/pass/";
         url = url.concat(emailAddress,passUrl);
         url = url.concat(pass);

@@ -17,7 +17,7 @@ const Cart = () => {
   });
 
   const cartDB = async (arr) => {
-    var url = "https://sneakers-api.herokuapp.com/cart/" + email;
+    var url = "https://sneakersupdated-bd053f013fa7.herokuapp.com/cart/" + email;
     const response = await fetch(url);
     const data = await response.json();
     setShoes(data);

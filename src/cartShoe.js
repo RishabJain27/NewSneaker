@@ -15,7 +15,7 @@ const cartShoe = ({names, image_url, site, category, email}) => {
         const requestOptions = {
             method: 'DELETE',
         };
-        let url = "https://sneakers-api.herokuapp.com/cart/" + email + "/name/" + names;
+        let url = "https://sneakersupdated-bd053f013fa7.herokuapp.com/cart/" + email + "/name/" + names;
         const response = await fetch(url, requestOptions);
         const data = await response.json();
         if(response.ok){
